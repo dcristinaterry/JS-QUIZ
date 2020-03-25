@@ -5,13 +5,13 @@
 
 body{
     
-    padding-left: 20%;
-    padding-right: 20%;
+    padding-left: 15%;
+    padding-right: 15%;
 }
 #mainHeader, .mainText{
     margin: auto;
     text-align: center;
-    background-color: aqua;
+    background-color: lightblue;
     padding-top: 10%;
     padding-bottom: 2%;
 
@@ -20,16 +20,18 @@ body{
 #initialParagraph{
     margin:auto;
     text-align: center;
-    background-color: aquamarine;
+    background-color: lightsteelblue;
 }
 
 .answerBttn{
-    background-color: gray;
-    width: 200px;
+    background-color: lightblue;
+    width: 250px;
     margin: 1%;
-    /* border-radius: 15%; */
-
 }
+.answerSection{
+    padding-left: 0;
+}
+
 .answerBttn:hover{
     background-color: cadetblue;
 }
@@ -38,7 +40,6 @@ body{
 .pOne{
     text-align: center;
 }
-
 
 .answerBttn:focus{
     background-color: cadetblue;
