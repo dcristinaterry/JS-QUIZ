@@ -1,49 +1,48 @@
 $(document).ready(function () {
-
+    console.log("Start");
     // =========================
     // Variables
     //==========================
 
     var correctAnswersCounter = 0;
-    var currentQusetionIndex = 0;
-
+    var currentQuestionIndex = 0;
+    var timeLeft = 500;
 
     // =========================
     // objects
     //==========================
-    console.log("Beginning");
-
+    
     var questions = [
         {
-            q: "q1",
-            a: "a1",
-            ch: ["ch1", "ch2"]
+            question: "q1",
+            answer: "a1",
+            choice: ["ch1", "ch2"]
         },
         {
-            q: "q2",
-            a: "a2",
-            ch: ["ch1", "ch2", "ch3"]
-        },
-        {
-            q: "q3",
-            a: "a3",
-            ch: ["ch1", "ch2", "ch3", "ch4"]
-        },
-        {
-            q: "q4",
-            a: "a4",
-            ch: ["ch1", "ch2", "ch3", "ch4"]
-        },
-        {
-            q: "q5",
-            a: "a5",
-            c: ["ch1", "ch2", "ch3", "ch4"]
-        },
-        {
-            q: "q6",
-            a: "a6",
-            ch: ["ch1", "ch2", "ch3", "ch4"]
-        },
+            question: "q2",
+            answer: "a2",
+            choice: ["ch1", "ch2", "ch3"]
+        }//,
+        // {
+        //     question: "q3",
+        //     answer: "a3",
+        //     choice: ["ch1", "ch2", "ch3", "ch4"]
+        // },
+        // {
+        //     question: "q4",
+        //     answer: "a4",
+        //     choice: ["ch1", "ch2", "ch3", "ch4"]
+        // },
+        // {
+        //     question: "q5",
+        //     answer: "a5",
+        //     choice: ["ch1", "ch2", "ch3", "ch4"]
+        // },
+        // {
+        //     question: "q6",
+        //     answer: "a6",
+        //     choice: ["ch1", "ch2", "ch3", "ch4"]
+        // },
 
     ]
 
@@ -55,21 +54,65 @@ $(document).ready(function () {
         console.log("FirstBtton");
         var txt = "1/10"
         $("#initialParagraph").text(txt);
-        
         addChoiceButtons(0);
-
+        timer();
     });
 
 
     function addChoiceButtons(index) {
+        //clear previous buttons
         $("#answers").empty();
-        var options = questions[index].ch;
-        console.log(options);
+
+        //gettin options and questions from the object array.
+        var options = questions[index].choice;
+        var question = questions[index].question;
+
+        console.log(options, index);
+
+        //adding the question:
+        $("#mainHeader").text(question);
+
+        //run function to add all the different options for a specific question
+        addChoicesButtons(options);
+      
+        $(".answerSection").on("click", function (event) {
+            console.log("selected answer: " + $(this).text());
+
+            var selectedAnswer = $(this).text();
+            // display next and previous buttons
+            // get the text of the button
+            // check the answer: get index and check against object's answer
+            // show if answer is correct or not
+            // wait two seconds and go next.
+            // if correct add to timer else subtract
+            currentQuestionIndex++;
+            console.log(currentQuestionIndex);
+            addChoiceButtons(currentQuestionIndex);
+    
+        })
+    }
+
+    function timer() {
+
+        var myInterval = setInterval(function () {
+
+            $("#timer").text(timeLeft);
+            timeLeft--;
+        }, 1000);
+
+    }
+    //setTimeout(finish, 20000);
+
+    function addChoicesButtons(options, index){
 
         for (var i = 0; i < options.length; i++) {
             var newDiv = $("<div>");
             var bttn = $("<button>");
             console.log(bttn);
+
+            //newDiv.addClass("pOne");
+            newDiv.addClass("answerSection");
+            newDiv.attr("id", "answers")
 
             bttn.attr("id", "btt" + index + i);
             bttn.text(options[i]);
@@ -77,21 +120,10 @@ $(document).ready(function () {
             bttn.addClass("answerBttn");
             $("#answers").append(newDiv);
 
-           newDiv.append(bttn);
+            newDiv.append(bttn);
         }
     }
 
-    $(".btn").on("click", function () {
-            // display next and previous buttons
-            // get the text of the button
-            // check the answer: get index and check against object's answer
-            // show if answer is correct or not
-            // wait two seconds and go next.
-            // if correct add to timer else subtract
-            
-
-            
-    })
 
     // next and previous 
 
