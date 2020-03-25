@@ -15,34 +15,36 @@ $(document).ready(function () {
     var questions = [
         {
             question: "1. _____________ is use for alternately expand and collapse a page element",
-            answer: "C. .toggle()",
+            answer: ".toggle()",
             choice: [".hover()", "stopPropagation()", ".toggle()", ".trigger()"]
         },
         {
             question: "Which method is provided by the jquery to create our own custom animation with fine-grained control?",
-            answer: "a2",
+            answer: ".animate()",
             choice: [".animation()", "stopPropagation()", ".animate()"]
         },
         {
             question: "Multiple javascript library coexist on single page using ___________________",
-            answer: "a3",
+            answer: "noConflict()",
             choice: ["conflict()", "noConflict()", "unbind()", "die()"]
-        }
-        // {
-        //     question: "q4",
-        //     answer: "a4",
-        //     choice: ["ch1", "ch2", "ch3", "ch4"]
-        // },
-        // {
-        //     question: "q5",
-        //     answer: "a5",
-        //     choice: ["ch1", "ch2", "ch3", "ch4"]
-        // },
-        // {
-        //     question: "q6",
-        //     answer: "a6",
-        //     choice: ["ch1", "ch2", "ch3", "ch4"]
-        // },
+        },
+        {
+            question: "Inside which HTML element do we put the JavaScript?",
+            answer: "<script>",
+            choice: ["<script>", "<javascript>", "<scripting>", "<js>"]
+        },
+        {
+            question: "where is the correct place to insert a JavaScript?",
+            answer: "Both <head> and <body>",
+            choice: ["The <head> section", "Both <head> and <body>", "The <body> section"]
+
+        
+        },
+        {
+            question: "The external JavaScript file must contain the <script> tag.",
+            answer: "False",
+            choice: ["True", "False"]
+        },
 
     ]
 
@@ -54,7 +56,7 @@ $(document).ready(function () {
         console.log("FirstBtton");
         var txt = "1/10"
         $("#initialParagraph").text(txt);
-        addChoiceButtons(0);
+        showQuestion(0);
         timer();
     });
 
@@ -69,7 +71,7 @@ $(document).ready(function () {
 
     }
 
-    function addChoiceButtons(index) {
+    function showQuestion(index) {
         //clear previous buttons
         $("#answers").empty();
         $("#answers").removeClass();
@@ -89,9 +91,41 @@ $(document).ready(function () {
         //run function to add all the different options for a specific question
         addChoicesButtons(options);
 
+
+
+        $(".answerSection").on("click", function (event) {
+
+            console.log("selected answer: " + $(this).text());
+
+            // get the text of the button
+            var selectedAnswer = ($(this).text());
+            var result = false;
+            //check the answer if answer is correct: get index and check against object's answer
+            if (selectedAnswer === questions[currentQuestionIndex].answer) {
+                console.log("correct:  " + true);
+                result = true;
+                //showResult(true);
+
+                // if correct add to timer else subtract
+                timeLeft = timeLeft + 10;
+            } 
+
+            currentQuestionIndex++;
+            console.log("new Index: " + currentQuestionIndex);
+
+            if (currentQuestionIndex < questions.length) {
+                showResult(result);
+                showQuestion(currentQuestionIndex);
+
+            } else {
+                // go to result page
+            }
+
+
+        })
+
     }
 
- 
 
     function addChoicesButtons(options, index) {
 
@@ -100,7 +134,7 @@ $(document).ready(function () {
             var bttn = $("<button>");
             // console.log(bttn);
             newDiv.addClass("answerSection");
-            newDiv.attr("id", "answers")
+            newDiv.attr("id", "answers + i")
 
             bttn.attr("id", "btt" + index + i);
             bttn.text(options[i]);
@@ -112,62 +146,30 @@ $(document).ready(function () {
         }
     }
 
-    $("#answers").on("click", function (event) {
-        console.log("selected answer: " + $(this).text());
+
+    function showResult(result) {
+        $("#correctAnswer").empty();
+        console.log("displaying the result");
+
         
-        
-        // get the text of the button
-        var selectedAnswer = $(this).text();
-
-       // check the answer: get index and check against object's answer
-        if(selectedAnswer === questions[currentQuestionIndex].answer){
-            console.log("correct");
-            // show if answer is correct or not
-           // showResult(true);
-            // if correct add to timer else subtract
-            timeLeft = timeLeft + 10;
-        }else{
-           // showResult(false);
-           console.log(false);
-            timeLeft = timeLeft - 10;
-        }
-        
-        // wait two seconds and go next.
-        
-        currentQuestionIndex++;
-        console.log("new Index: " + currentQuestionIndex);
-
-        if (currentQuestionIndex < questions.length) {
-
-            addChoiceButtons(currentQuestionIndex);
-        }else{
-            // go to result page
-        }
-
-
-    })
-
-    function showResult(result){
-        var newDivResult = $("<div>");
-        newDivResult.attr("id", "resultSection")
         var newHr = $("<hr>");
         newHr.addClass("bar");
         var newP = $("<p>");
         newP.addClass("result");
         newP.attr("id", "displayResult")
 
+        $("#correctAnswer").append(newHr);
+        $("#correctAnswer").append(newP);
+
         //check
 
-        if(result=== true){
-            $("$displayResult").text(" CORRECT !!");
-        }else{
-            $("$displayResult").text(" INCORRECT !!");
+        if (result === true) {
+            $("#displayResult").text("Previous answer: CORRECT !!");
+        } else {
+            $("#displayResult").text("Previous answer: INCORRECT !!");
         }
 
-
-        $("body").append(newDivResult);
-        $("#resultSection").append(newHr);
-        $("#resultSection").append(newP);
+       
     }
 
     // next and previous 

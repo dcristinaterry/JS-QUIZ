@@ -1,42 +1,72 @@
-# 04 Web APIs: Code Quiz
+# H04 JavaScript: Quiz
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+This application generates a JavaScript Quiz. Generating all the elements of the HTML dynamically.
+The idea is that once the user starts the Quiz, it will show a counter that will indicate how many points the user starts with.  This counter will decrease by one every, 10 points will be added when answered correctly and 10 points deducted when answered incorrectly. To achieve this I used the method setInterval.
+Also, every new question and answer options, get added dynamically.  A result will be displayed at the bottom indicating the user if the answer was correct or not.¢4¢¢¢
 
-## User Story
+## GettingStarted
+
+Where is the project?
+
+>[github repository](https://github.com/crisdc88/H4-JS-QUIZ/)
+
+## Prerequisites
+
+>N/A
+
+## Built With
+
+* HTML
+* CSS
+* jQuery
+
+## Deployed Link
+
+>[deployed URL: https://crisdc88.github.io/H4-JS-QUIZ/](https://crisdc88.github.io/H4-JS-QUIZ/)
+
+## Code-Snippets
+
+1. Open scritp.js
+2. Find the following code showing the use the creation of elemnts dynamically.
+3. Find the following code showing implementation of random integer numbers.
+
 
 ```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
+    function addChoicesButtons(options, index) {
+
+        for (var i = 0; i < options.length; i++) {
+            var newDiv = $("<div>");
+            var bttn = $("<button>");
+            // console.log(bttn);
+            newDiv.addClass("answerSection");
+            newDiv.attr("id", "answers + i")
+
+            bttn.attr("id", "btt" + index + i);
+            bttn.text(options[i]);
+            bttn.addClass("btn")
+            bttn.addClass("answerBttn");
+            $("#answers").append(newDiv);
+
+            newDiv.append(bttn);
+        }
+    }
+
+ will call recursively when a button gets clicked:
+
+ if (currentQuestionIndex < questions.length) {
+                showResult(result);
+                showQuestion(currentQuestionIndex); // main function displaying the question and calling on addChoicesButtons.
+
+    }
 ```
 
-## Acceptance Criteria
+## Author
 
-```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
-```
+D. Cristina Terry.
+GitHub: [https://github.com/crisdc88/](https://github.com/crisdc88/),
 
-The following animation demonstrates the application functionality:
+LinkedIn: [www.linkedin.com/in/dcristinaterry](www.linkedin.com/in/dcristinaterry)
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+## License
 
-### Review
-
-You are required to submit the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+[MIT](https://choosealicense.com/licenses/mit/)
