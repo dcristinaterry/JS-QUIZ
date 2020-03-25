@@ -1,0 +1,54 @@
+#timer{
+    float: right;
+    width: 100px;
+}
+
+body{
+    
+    padding-left: 20%;
+    padding-right: 20%;
+}
+#mainHeader, .mainText{
+    margin: auto;
+    text-align: center;
+    background-color: aqua;
+    padding-top: 10%;
+    padding-bottom: 2%;
+
+}
+
+#initialParagraph{
+    margin:auto;
+    text-align: center;
+    background-color: aquamarine;
+}
+
+.answerBttn{
+    background-color: gray;
+    width: 200px;
+    margin: 1%;
+    /* border-radius: 15%; */
+
+}
+.answerBttn:hover{
+    background-color: cadetblue;
+}
+
+
+.pOne{
+    text-align: center;
+}
+
+
+.answerBttn:focus{
+    background-color: cadetblue;
+}
+#next, #previous{
+    text-align: center;
+}
+
+@media screen and (max-width: 550px){
+    body{
+        padding: 0;
+    }
+}
