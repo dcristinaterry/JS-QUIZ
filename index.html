@@ -11,7 +11,7 @@
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="./Assets/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  
+
   <title>JS Quiz</title>
 </head>
 
@@ -27,7 +27,9 @@
 
   <section>
 
-    <p id="initialParagraph">Answer the following questions just to see how much you know, or don't, about JavaScript.  You will get 300 points, for every wrong question you will be deducted 10 points, and 1 point for every second past.  you will gain 10 points for every write answer.   Good luck!!</p>
+    <p id="initialParagraph">Answer the following questions just to see how much you know, or don't, about JavaScript.
+      You will get 200 points, for every wrong question you will be deducted 30 points, and 1 point for every second
+      passed. you will gain 10 points for every write answer. Good luck!!</p>
 
     <div id="answers" class="pOne">
       <button id="bttn1" class="answerBttn btn pOne">Start the JavaScript Quiz</button>
@@ -35,15 +37,27 @@
     <div id="correctAnswer">
 
     </div>
-
-
-    <div >
-      <button id="next" class="btn " style="visibility: hidden">NEXT</button>
-      <button id="previous" class="btn " style="visibility: hidden">PREVIOUS</button>
-    </div>
-  
   </section>
 
+  <!-- style="display: none"  -->
+  <div id="myform" style="display: none">
+    <form id="formCredentials">
+      <div class="form-group">
+        <label for="exampleInputEmail1">Enter your Initials</label>
+        <input id="initials" class="form-control" type="text" placeholder="Default input">
+      </div>
+      <div>
+        <button id="submitbttn1" class="btn btn-primary submitbttn">submit</button>
+      </div>
+      <!-- type="submit" -->
+    </form>
+  </div>
+
+
+  <div>
+    <button id="next" class="btn " style="visibility: hidden">NEXT</button>
+    <button id="previous" class="btn " style="visibility: hidden">PREVIOUS</button>
+  </div>
 
 
 
@@ -54,7 +68,7 @@
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="./Assets/script.js"></script>
-  
+
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>

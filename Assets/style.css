@@ -8,6 +8,10 @@ body{
     padding-left: 15%;
     padding-right: 15%;
 }
+
+header{
+    margin-top: 10%;
+}
 #mainHeader, .mainText{
     margin: auto;
     text-align: center;
@@ -19,6 +23,7 @@ body{
 
 #initialParagraph{
     margin:auto;
+    padding: 2%;
     text-align: center;
     background-color: lightsteelblue;
 }
@@ -35,7 +40,9 @@ body{
 .answerBttn:hover{
     background-color: cadetblue;
 }
-
+.clicked{
+    background-color: lightsalmon;
+}
 
 .pOne{
     text-align: center;
@@ -46,6 +53,30 @@ body{
 }
 #next, #previous{
     text-align: center;
+}
+.finalresult{
+    margin: 0;
+    padding: 2%;
+    font-family: Tahoma, Geneva, sans-serif;
+    background-color: lightgray;
+}
+#myform{
+    background-color: lightblue;
+    padding: 10%;
+    
+}
+
+.submitbttn{
+    background-color: lightseagreen;
+    text-align: center;
+    margin-left: 5%;
+    border: none;
+}
+
+#timeUp{
+    height: 10%;
+    text-align: center;
+    margin: 10%;
 }
 
 @media screen and (max-width: 550px){
