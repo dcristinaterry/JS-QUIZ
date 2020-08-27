@@ -2,7 +2,7 @@
 
 This application generates a JavaScript Quiz. Generating all the elements of the HTML dynamically.
 The idea is that once the user starts the Quiz, it will show a counter that will indicate how many points the user starts with.  This counter will decrease by one every, 10 points will be added when answered correctly and 10 points deducted when answered incorrectly. To achieve this I used the method setInterval.
-Also, every new question and answer options, get added dynamically.  A result will be displayed at the bottom indicating the user if the answer was correct or not.¢4¢¢¢
+Also, every new question and answer options, get added dynamically.  A result will be displayed at the bottom indicating the user if the answer was correct or not.
 
 ## GettingStarted
 
