@@ -22,7 +22,7 @@ Where is the project?
 
 ## Deployed Link
 
->[deployed URL: https://crisdc88.github.io/H4-JS-QUIZ/](https://dcristinaterry.github.io/JS-QUIZ/)
+>[deployed URL: https://dcristinaterry.io/H4-JS-QUIZ/](https://dcristinaterry.github.io/JS-QUIZ/)
 
 ## Code-Snippets
 
