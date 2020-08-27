@@ -8,7 +8,7 @@ Also, every new question and answer options, get added dynamically.  A result wi
 
 Where is the project?
 
->[github repository](https://github.com/crisdc88/H4-JS-QUIZ/)
+>[github repository](https://github.com/dcristinaterry/H4-JS-QUIZ/)
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ Where is the project?
 ## Author
 
 D. Cristina Terry.
-GitHub: [https://github.com/crisdc88/](https://github.com/crisdc88/),
+GitHub: [https://github.com/dcristinaterry/](https://github.com/dcristinaterry/),
 
 LinkedIn: [www.linkedin.com/in/dcristinaterry](www.linkedin.com/in/dcristinaterry)
 
